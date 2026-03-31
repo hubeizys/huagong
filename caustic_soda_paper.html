@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>烧碱在造纸业中的应用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            color: #24292f;
+            background: linear-gradient(135deg, #f6f8fa 0%, #e8f4f8 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 3px solid #0969da;
+            margin-bottom: 3rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #0969da;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #656d76;
+            font-size: 1.1rem;
+        }
+        .chemical-formula {
+            display: inline-block;
+            background: #ddf4ff;
+            border: 1px solid #54aeff;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: #0550ae;
+        }
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #0969da;
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ddf4ff;
+        }
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        h3 {
+            color: #6639ba;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .process-flow {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0284c7;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .process-flow h4 {
+            color: #0369a1;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .step-number {
+            background: #0284c7;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-content strong {
+            color: #0369a1;
+        }
+        .reaction-box {
+            background: #1f1f1f;
+            color: #d4a72c;
+            font-family: "SF Mono", Monaco, Consolas, monospace;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        .reaction-box .comment {
+            color: #8b949e;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 {
+            color: #b45309;
+            margin-bottom: 0.8rem;
+        }
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .diagram {
+            background: #f6f8fa;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .diagram-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .diagram-box {
+            background: white;
+            border: 2px solid #0969da;
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            font-weight: 500;
+        }
+        .diagram-arrow {
+            font-size: 1.5rem;
+            color: #0969da;
+        }
+        .uses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .use-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .use-card h4 {
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .use-card .icon {
+            font-size: 1.3rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            border: 1px solid #d0d7de;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        th {
+            background: #f6f8fa;
+            font-weight: 600;
+        }
+        .safety-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .safety-box h4 {
+            color: #dc2626;
+            margin-bottom: 0.8rem;
+        }
+        .safety-box ul {
+            margin-left: 1.5rem;
+        }
+        .safety-box li {
+            color: #991b1b;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #656d76;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>烧碱在造纸业中的应用</h1>
+            <p class="subtitle">探索氢氧化钠（NaOH）在现代造纸工艺中的关键作用</p>
+            <div class="chemical-formula">NaOH · 氢氧化钠 · 苛性钠</div>
+        </header>
+
+        <div class="content">
+            <h2>一、概述</h2>
+            <p>烧碱（氢氧化钠，NaOH）是造纸工业中最重要的化学试剂之一，在<strong>制浆</strong>和<strong>造纸</strong>过程中发挥着不可或缺的作用。在全球范围内，烧碱约占造纸化学品消耗量的15%，是造纸行业最重要的无机化学品。</p>
+
+            <div class="diagram">
+                <p style="margin-bottom:1rem;font-weight:600;color:#0969da;">烧碱在造纸流程中的主要应用环节</p>
+                <div class="diagram-row">
+                    <div class="diagram-box">原料准备</div>
+                    <span class="diagram-arrow">→</span>
+                    <div class="diagram-box" style="background:#dbeafe;border-color:#2563eb;">蒸煮制浆<br><small>(主要应用)</small></div>
+                    <span class="diagram-arrow">→</span>
+                    <div class="diagram-box">漂白处理</div>
+                    <span class="diagram-arrow">→</span>
+                    <div class="diagram-box">纸页成形</div>
+                </div>
+            </div>
+
+            <h2>二、制浆过程中的作用</h2>
+            <p>制浆是将植物纤维原料（木材、竹子、稻草等）分离成纸浆的过程。烧碱在这一过程中起着<strong>核心化学试剂</strong>的作用。</p>
+
+            <h3>2.1 化学反应机理</h3>
+            <p>烧碱在制浆过程中的主要作用是<strong>降解木素</strong>和<strong>溶解半纤维素</strong>，从而将纤维分离出来。</p>
+
+            <div class="reaction-box">
+<span class="comment">// 木素降解反应（简化模型）</span>
+R-CH=CH-CH₂-O-CH₃ + NaOH → R-CH=CH-CH₂-OH + NaOCH₃
+<span class="comment">// 甲氧基被羟基取代，木素大分子断裂</span>
+
+<span class="comment">// 半纤维素溶解</span>
+(C₅H₁₀O₅)n + NaOH → 可溶性糖钠盐
+<span class="comment">// 半纤维素在碱性条件下水解并溶解</span>
+            </div>
+
+            <h3>2.2 硫酸盐法制浆（Kraft Process）</h3>
+            <p>目前最常用的制浆方法是硫酸盐法，烧碱与硫化钠配合使用：</p>
+
+            <div class="process-flow">
+                <h4>🧪 硫酸盐法制浆工艺流程</h4>
+                <div class="process-step">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                        <strong>原料切碎</strong> — 将木材切成小木片，约15-25mm长
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                        <strong>蒸煮液配制</strong> — 白液含 NaOH 12-18% + Na₂S 3-5%
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                        <strong>高温蒸煮</strong> — 160-180°C，蒸煮时间4-8小时
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">4</span>
+                    <div class="step-content">
+                        <strong>纤维分离</strong> — 木素降解，纤维被释放出来
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">5</span>
+                    <div class="step-content">
+                        <strong>黑液回收</strong> — 燃烧黑液回收化学药品和热能
+                    </div>
+                </div>
+            </div>
+
+            <div class="reaction-box">
+<span class="comment">// 硫化钠的协同作用</span>
+Na₂S + H₂O → NaHS + NaOH
+<span class="comment">// 生成的NaHS具有更强的脱木素能力</span>
+
+<span class="comment">// 脱木素反应加速</span>
+木素 + HS⁻ → 硫代木素 + OH⁻
+            </div>
+
+            <h2>三、烧碱在造纸各环节的具体作用</h2>
+
+            <div class="uses-grid">
+                <div class="use-card">
+                    <h4><span class="icon">🪵</span> 纤维分散</h4>
+                    <p>帮助纤维在水中充分分散，防止纤维絮聚，保证纸页匀度</p>
+                </div>
+                <div class="use-card">
+                    <h4><span class="icon">⚗️</span> 胶粘物控制</h4>
+                    <p>皂化树脂类胶粘物，使其分散或溶解于水中</p>
+                </div>
+                <div class="use-card">
+                    <h4><span class="icon">🧹</span> 清洁作用</h4>
+                    <p>清除设备管道中的沉积物，保持生产顺畅</p>
+                </div>
+                <div class="use-card">
+                    <h4><span class="icon">📄</span> 纸张施胶</h4>
+                    <p>在某些施胶工艺中作为催化剂参与反应</p>
+                </div>
+            </div>
+
+            <h2>四、典型工艺参数</h2>
+            <table>
+                <tr>
+                    <th>工艺阶段</th>
+                    <th>烧碱用量</th>
+                    <th>温度</th>
+                    <th>时间</th>
+                </tr>
+                <tr>
+                    <td>硫酸盐法蒸煮</td>
+                    <td>12-18%（对木片）</td>
+                    <td>160-180°C</td>
+                    <td>4-8小时</td>
+                </tr>
+                <tr>
+                    <td>半化学浆</td>
+                    <td>4-8%</td>
+                    <td>120-140°C</td>
+                    <td>1-3小时</td>
+                </tr>
+                <tr>
+                    <td>再生纸脱墨</td>
+                    <td>1-3%</td>
+                    <td>50-70°C</td>
+                    <td>30-60分钟</td>
+                </tr>
+                <tr>
+                    <td>纸机清洗</td>
+                    <td>0.5-2%</td>
+                    <td>60-80°C</td>
+                    <td>按需</td>
+                </tr>
+            </table>
+
+            <h2>五、再生纸脱墨中的关键作用</h2>
+            <p>在废纸回收利用中，烧碱的作用尤为重要：</p>
+            <ol>
+                <li><strong>油墨皂化</strong> — 与油墨中的连接料发生皂化反应，使其从纤维上脱离</li>
+                <li><strong>纤维分散</strong> — 使废纸中的油墨颗粒分散成微小粒子</li>
+                <li><strong>碱性软化</strong> — 软化纤维素表面，提高纤维柔软度和结合力</li>
+                <li><strong>表面清洁</strong> — 清除纤维表面的污垢和杂质</li>
+            </ol>
+
+            <div class="reaction-box">
+<span class="comment">// 脱墨过程中的皂化反应</span>
+油墨连接料(酯类) + NaOH → 肥皂(羧酸钠) + 甘油
+<span class="comment">// 酯键断裂，油墨被分散成细小颗粒</span>
+            </div>
+
+            <h2>六、安全注意事项</h2>
+            <div class="safety-box">
+                <h4>⚠️ 烧碱安全警示</h4>
+                <ul>
+                    <li><strong>强腐蚀性</strong> — 可引起严重皮肤灼伤和眼睛损伤</li>
+                    <li><strong>防护要求</strong> — 操作时必须佩戴防护手套、护目镜和防护服</li>
+                    <li><strong>禁止混合</strong> — 切勿与酸类混合，以免产生剧烈放热反应</li>
+                    <li><strong>储存要求</strong> — 密闭保存，避免接触铝、锌等金属</li>
+                </ul>
+            </div>
+
+            <h2>七、总结</h2>
+            <div class="highlight-box">
+                <h4>💡 关键要点</h4>
+                <ul>
+                    <li>烧碱是造纸工业中最重要的化学品之一</li>
+                    <li>核心作用：<strong>降解木素</strong>、<strong>溶解半纤维素</strong>、<strong>分离纤维</strong></li>
+                    <li>主要应用：<strong>硫酸盐法蒸煮</strong>（用量最大）和<strong>废纸脱墨</strong></li>
+                    <li>现代造纸采用<strong>碱回收系统</strong>，实现烧碱的循环利用，回收率可达95%以上</li>
+                    <li>是实现造纸工业绿色可持续发展的关键环节</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>本页面仅供教育目的展示烧碱在造纸业中的应用原理</p>
+        </footer>
+    </div>
+</body>
+</html>
