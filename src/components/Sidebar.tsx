@@ -1,16 +1,20 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { 
-  LayoutDashboard, 
-  GitBranch, 
-  BookOpen, 
-  FolderKanban, 
+import {
+  LayoutDashboard,
+  GitBranch,
+  BookOpen,
+  FolderKanban,
   Info,
   FlaskConical,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  LogOut,
+  User
 } from 'lucide-react';
 import { useState } from 'react';
+import { useAuth } from '@/hooks/useAuth';
+import { toast } from 'sonner';
 
 interface SidebarProps {
   projectCount: number;
@@ -19,6 +23,12 @@ interface SidebarProps {
 export function Sidebar({ projectCount }: SidebarProps) {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success('已退出登录');
+  };
 
   const navItems = [
     { path: '/', label: '仪表盘', icon: LayoutDashboard },
@@ -81,6 +91,31 @@ export function Sidebar({ projectCount }: SidebarProps) {
           </Link>
         ))}
       </nav>
+
+      {/* User Section */}
+      {user && (
+        <div className="p-3 border-t border-slate-800">
+          <div className={`flex items-center ${collapsed ? 'justify-center' : 'gap-3'}`}>
+            <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center shrink-0">
+              <User className="w-4 h-4 text-white" />
+            </div>
+            {!collapsed && (
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-white truncate">{user.email}</p>
+              </div>
+            )}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-slate-400 hover:text-white hover:bg-slate-800"
+              onClick={handleSignOut}
+              title="退出登录"
+            >
+              <LogOut className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      )}
 
       {/* Collapse Button */}
       <div className="p-3 border-t border-slate-800">
